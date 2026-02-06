@@ -1,0 +1,56 @@
+public class Lista {
+    private int valor;
+    private Lista prox;
+    
+    Lista() {
+        this.valor = 0;
+        this.prox = null;
+    }
+
+    Lista(int valor) {
+        this.valor = valor;
+        this.prox = null;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+
+    public Lista getProx() {
+        return prox;
+    }
+
+    public void setProx(Lista prox) {
+        this.prox = prox;
+    }
+
+    public void imprimirLista(Lista inicio) {
+        Lista atual = inicio;
+
+        while (atual != null) {
+            System.out.println(atual.getValor());
+            atual = atual.getProx();
+        }
+    }
+
+    public void inserirFinalLista(int valor, Lista inicio) {
+        Lista novo = new Lista(valor);
+        Lista atual = inicio;
+
+        while (atual.getProx() != null) {
+            atual = atual.getProx();
+        } // Achou o último nó
+
+        atual.setProx(novo);
+    }
+
+    public void inserirInicioLista(int valor, Lista inicio) {
+        Lista novo = new Lista(valor);
+        novo.setProx(inicio.getProx());
+        inicio.setProx(novo);
+    }
+}
