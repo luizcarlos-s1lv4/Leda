@@ -1,0 +1,75 @@
+public class Fila {
+    private int inicioFila;
+    private int finalFila;
+    private int[] itens;
+
+    public Fila(int tamanho) {
+        this.inicioFila = 0;
+        this.finalFila = 0;
+        itens = new int[tamanho];
+    }
+
+    public int inicioFila() {
+        return inicioFila;
+    }
+
+    public void setinIcioFila(int inicioFila) {
+        this.inicioFila = inicioFila;
+    }
+
+    public int finalFila() {
+        return finalFila;
+    }
+
+    public void setinFinalFila(int finalFila) {
+        this.finalFila = finalFila;
+    }
+
+    public int[] getItens() {
+        return itens;
+    }
+
+    public void setItens(int[] itens) {
+        this.itens = itens;
+    }
+
+    public void inserir(int valor) {
+        if (verificaFilaCheia()) {
+            itens[finalFila] = valor;
+            finalFila++;   
+        } else {
+            System.out.println("Fila Cheia");
+        }
+    }
+
+    public void remover() {
+        if (verificaFilaVazia()) {
+            inicioFila++;   
+        } else {
+            System.out.println("Fila Vazia");
+        }
+    }
+
+    public boolean verificaFilaVazia() {
+        boolean retorno = true;
+
+        if (inicioFila == finalFila) {
+            retorno = false;
+        }
+        return retorno;
+    }
+
+    public boolean verificaFilaCheia() {
+        boolean retorno = true;
+        if (inicioFila == itens.length - 1) {
+            retorno = false;
+        }
+        return retorno;
+    }
+
+    public void imprimirFila() {
+        for(int i = inicioFila; i < finalFila; i++) {
+            System.out.println(itens[i]);
+        }
+    }
+}
