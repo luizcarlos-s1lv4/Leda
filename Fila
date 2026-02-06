@@ -73,3 +73,16 @@ public class Fila {
         }
     }
 }
+
+-------------------------------------------------------------------
+
+
+public class Principal {
+    public static void main(String[] args){
+        Fila f = new Fila(5);
+        f.inserir(10);
+        f.inserir(20);
+        f.inserir(30);
+        f.imprimirFila();
+        f.remover();
+        f.imprimirFila();
